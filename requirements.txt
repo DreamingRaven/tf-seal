@@ -1,2 +1,2 @@
-tf_nightly >=2,
+tf_nightly>=2.1.0.dev20191003
 numpy>=1.17.0
