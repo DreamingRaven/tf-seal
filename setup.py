@@ -14,19 +14,16 @@ class BinaryDistribution(Distribution):
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 setuptools.setup(
     name="tf-seal",
     version="0.1.0",
     packages=setuptools.find_packages(),
     package_data={'tf_seal': []},
     python_requires="==3.7.*",
-    install_requires=[
-        "numpy >=1.14",
-        "tf_nightly >=2",
-    ],
-    extras_require={
-        "tf": ["tf_nightly >=2"],
-    },
+    install_requires=requirements,
     license="Apache License 2.0",
     url="https://github.com/tf-encrypted/tf-seal",
     description="Bridge between TensorFlow and the Microsoft SEAL homomorphic encryption library.",
