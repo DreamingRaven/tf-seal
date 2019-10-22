@@ -3,14 +3,16 @@ import setuptools
 
 from setuptools.dist import Distribution
 
-class BinaryDistribution(Distribution):
-  """This class is needed in order to create OS specific wheels."""
 
-  def has_ext_modules(self):
-    return True
+class BinaryDistribution(Distribution):
+    """This class is needed in order to create OS specific wheels."""
+
+    def has_ext_modules(self):
+        return True
+
 
 with open("README.md", "r") as fh:
-  long_description = fh.read()
+    long_description = fh.read()
 
 setuptools.setup(
     name="tf-seal",
@@ -20,10 +22,10 @@ setuptools.setup(
     python_requires="==3.7.*",
     install_requires=[
         "numpy >=1.14",
-        "tf_nightly >=1.14.0, <2",
+        "tf_nightly >=2",
     ],
     extras_require={
-        "tf": ["tf_nightly >=1.14.0, <2"],
+        "tf": ["tf_nightly >=2"],
     },
     license="Apache License 2.0",
     url="https://github.com/tf-encrypted/tf-seal",
